@@ -19,11 +19,13 @@ export class MovieDetailsPage implements OnInit {
     let movieId = ''
     if (id != null) {
       movieId = id
+      this.movieService.getMovieDetails(movieId).subscribe((res) => {
+        console.log(res)
+        this.movie = res;
+      })
+    } else {
+      // Tratar else
     }
-    this.movieService.getMovieDetails(movieId).subscribe((res) => {
-      console.log(res)
-      this.movie = res;
-    })
   }
 
   openHomepage() {
